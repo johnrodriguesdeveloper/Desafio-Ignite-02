@@ -13,9 +13,11 @@ export const defaultTheme = {
 
   'yellow-dark': '#C47F17',
   'yellow-light': '#F1E9C9',
-  yellow: '#DBAC2C',
+  // eslint-disable-next-line prettier/prettier
+  'yellow': '#DBAC2C',
 
-  purple: '#8047F8',
+  // eslint-disable-next-line prettier/prettier
+  'purple': '#8047F8',
   'purple-light': '#EBE5F9',
   'purple-dark': '#4B2995',
 }

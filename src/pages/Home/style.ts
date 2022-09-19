@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.div``
+export const Content = styled.div`
   display: flex;
   margin: 4rem 1rem 0rem 1rem;
 
@@ -32,11 +33,33 @@ export const ContentTitle = styled.div`
 export const ContentIcons = styled.div`
   display: flex;
   margin-top: 3rem;
-  gap: 1rem;
-  flex-direction: column;
-  div {
+  gap: 1.25rem;
+
+  div.ListIcons {
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
     align-items: center;
-    margin-top: 1.25rem;
   }
+`
+const BACKGROUND_ICONES_COLORS = {
+  yellowDark: 'yellow-dark',
+  yellow: 'yellow',
+  gray: 'base-text',
+  purple: 'purple',
+} as const
+
+interface BackgroundIconsProps {
+  statusColor: keyof typeof BACKGROUND_ICONES_COLORS
+}
+export const BackgroundIcons = styled.span<BackgroundIconsProps>`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  gap: 8px;
+  margin-right: 0.25rem;
+  border-radius: 1000px;
+  background: ${(props) =>
+    props.theme[BACKGROUND_ICONES_COLORS[props.statusColor]]};
 `

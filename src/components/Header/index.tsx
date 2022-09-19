@@ -1,5 +1,5 @@
 import { MapPin, ShoppingCart } from 'phosphor-react'
-import logo from '../assets/logo.svg'
+import logo from '../../assets/logo.svg'
 import { ButtonCart, ButtonMap, Container, ContentButtons } from './style'
 
 export function Header() {
