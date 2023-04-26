@@ -53,7 +53,6 @@ export function Home() {
         </ContentTitle>
         <img src={coffee} alt="" />
       </Content>
-
       <AllCoffes />
     </Container>
   )

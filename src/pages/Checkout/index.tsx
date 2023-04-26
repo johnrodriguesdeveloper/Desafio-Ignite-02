@@ -1,3 +1,12 @@
+import { CompleteOrder } from './components/CompleteOrder'
+import { SelecedCafes } from './components/SelectedCafes'
+import { CheckoutContainer } from './style'
+
 export function Checkout() {
-  return <h1>Checkout</h1>
+  return (
+    <CheckoutContainer>
+      <CompleteOrder />
+      <SelecedCafes />
+    </CheckoutContainer>
+  )
 }
