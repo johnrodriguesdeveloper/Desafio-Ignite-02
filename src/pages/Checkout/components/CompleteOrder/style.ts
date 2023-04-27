@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const CompleteOrderContainer = styled.div``
+export const CompleteOrderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 00.875rem;
+`
 
 export const TitleCompleteOrder = styled.p`
   font-family: 'Baloo 2';
@@ -8,7 +12,6 @@ export const TitleCompleteOrder = styled.p`
   font-weight: 700;
   font-size: 18px;
   line-height: 130%;
-  margin-bottom: 1rem;
 
   display: flex;
   align-items: center;
@@ -80,6 +83,59 @@ export const AddressFormContainer = styled.div`
     color: ${({ theme }) => theme['base-text']};
     &::placeholder {
       color: ${({ theme }) => theme['base-label']};
+    }
+  }
+`
+
+export const HeaderPayment = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  h1 {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 130%;
+  }
+  h2 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 130%;
+  }
+`
+
+export const PaymentContainer = styled.div`
+  padding: 2.5rem;
+  width: 100%;
+  background: ${({ theme }) => theme['base-card']};
+  border-radius: 6px;
+`
+export const FormOfPaymentContainer = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 00.75rem;
+
+  button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    border: 1px solid ${({ theme }) => theme['base-button']};
+    background: ${({ theme }) => theme['base-input']};
+    overflow: hidden;
+    transition: 0.4s;
+
+    &:focus-within {
+      border-color: ${({ theme }) => theme['yellow-dark']};
+    }
+
+    font-size: 0.75rem;
+    color: ${({ theme }) => theme['base-text']};
+    &::placeholder {
+      color: ${({ theme }) => theme['base-label']};
+    }
+
+    span {
+      padding-left: 00.75rem;
     }
   }
 `
