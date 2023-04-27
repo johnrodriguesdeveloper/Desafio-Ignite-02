@@ -6,17 +6,6 @@ export const CompleteOrderContainer = styled.div`
   gap: 00.875rem;
 `
 
-export const TitleCompleteOrder = styled.p`
-  font-family: 'Baloo 2';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 130%;
-
-  display: flex;
-  align-items: center;
-`
-
 export const DeliveryContainer = styled.div`
   padding: 2.5rem;
   width: 100%;
@@ -74,8 +63,12 @@ export const AddressFormContainer = styled.div`
     justify-content: space-between;
     overflow: hidden;
     transition: 0.4s;
+    &:hover {
+      background: ${({ theme }) => theme['base-hover']};
+    }
 
-    &:focus-within {
+    &:focus {
+      outline: transparent;
       border-color: ${({ theme }) => theme['yellow-dark']};
     }
 
@@ -114,7 +107,6 @@ export const FormOfPaymentContainer = styled.div`
   gap: 00.75rem;
 
   button {
-    cursor: pointer;
     display: flex;
     align-items: center;
     padding: 1rem;
@@ -123,8 +115,10 @@ export const FormOfPaymentContainer = styled.div`
     background: ${({ theme }) => theme['base-input']};
     overflow: hidden;
     transition: 0.4s;
+    border-radius: 6px;
 
-    &:focus-within {
+    &:focus {
+      outline: transparent;
       border-color: ${({ theme }) => theme['yellow-dark']};
     }
 
@@ -133,9 +127,13 @@ export const FormOfPaymentContainer = styled.div`
     &::placeholder {
       color: ${({ theme }) => theme['base-label']};
     }
+    &:hover {
+      background: ${({ theme }) => theme['base-hover']};
+    }
 
     span {
       padding-left: 00.75rem;
+      user-select: none;
     }
   }
 `

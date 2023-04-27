@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyled = createGlobalStyle`
 *{
@@ -18,7 +18,18 @@ body,input ,button  {
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
 }
-a{
+a, button{
   cursor: pointer;
 }
+`
+
+export const TitleSectionCheckout = styled.p`
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+
+  display: flex;
+  align-items: center;
 `

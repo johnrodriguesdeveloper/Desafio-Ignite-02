@@ -5,15 +5,15 @@ import {
   HeaderDelivery,
   HeaderPayment,
   PaymentContainer,
-  TitleCompleteOrder,
 } from './style'
 import { AddressForm } from './AddressForm'
 import { FormOfPayment } from './FormOfPayment'
+import { TitleSectionCheckout } from '../../../../styles/global'
 
 export function CompleteOrder() {
   return (
     <CompleteOrderContainer>
-      <TitleCompleteOrder>Complete seu pedido</TitleCompleteOrder>
+      <TitleSectionCheckout>Complete seu pedido</TitleSectionCheckout>
       <DeliveryContainer>
         <HeaderDelivery>
           <MapPinLine color="#C47F17" size={22} />

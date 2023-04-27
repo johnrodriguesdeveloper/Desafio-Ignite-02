@@ -11,6 +11,7 @@ import {
   Price,
   Tags,
 } from './style'
+import { ButtonsIncrevements } from '../../ButtonsIncrements'
 
 export interface Coffee {
   id: number
@@ -42,12 +43,7 @@ export function CardsCoffes({ coffee }: CoffeeProps) {
           R$ <span>{formattedPrice}</span>
         </Price>
         <ButtonFooter>
-          <ButtonsIncrements>
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
-          </ButtonsIncrements>
-
+          <ButtonsIncrevements />
           <AddCartWrapper>
             <button>
               <ShoppingCart weight="fill" size={22} color="white" />
