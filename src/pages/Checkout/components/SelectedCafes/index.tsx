@@ -1,8 +1,8 @@
+import { NavLink } from 'react-router-dom'
 import { TitleSectionCheckout } from '../../../../styles/global'
 import { CardCartCoffes } from './CardCartCoffees'
 import {
   ButtonConfirmed,
-  FooterSelectedCafes,
   SelectedCafesContainer,
   SelectedCafesContent,
   TextFooterSelectedCafes,
@@ -31,7 +31,9 @@ export function SelectedCafes() {
             </p>
           </div>
         </TextFooterSelectedCafes>
-        <ButtonConfirmed>CONFIRMAR PEDIDO</ButtonConfirmed>
+        <NavLink to="/successfulorder" title="successfulorder">
+          <ButtonConfirmed>CONFIRMAR PEDIDO</ButtonConfirmed>
+        </NavLink>
       </SelectedCafesContent>
     </SelectedCafesContainer>
   )
