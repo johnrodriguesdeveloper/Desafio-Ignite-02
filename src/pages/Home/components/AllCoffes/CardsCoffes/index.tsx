@@ -1,9 +1,7 @@
 import { ShoppingCart } from 'phosphor-react'
-import { formatMoney } from '../../../utils/formatMoney'
 import {
   AddCartWrapper,
   ButtonFooter,
-  ButtonsIncrements,
   CardFooter,
   CardsCoffeesContainer,
   Description,
@@ -11,7 +9,8 @@ import {
   Price,
   Tags,
 } from './style'
-import { ButtonsIncrevements } from '../../ButtonsIncrements'
+import { ButtonsIncrevements } from '../../../../../components/ButtonsIncrements'
+import { formatMoney } from '../../../../../utils/formatMoney'
 
 export interface Coffee {
   id: number
@@ -21,7 +20,7 @@ export interface Coffee {
   photo: string
   price: number
 }
-interface CoffeeProps {
+export interface CoffeeProps {
   coffee: Coffee
 }
 export function CardsCoffes({ coffee }: CoffeeProps) {

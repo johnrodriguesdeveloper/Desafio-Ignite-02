@@ -1,6 +1,6 @@
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import coffee from '../../assets/coffee.svg'
-import { AllCoffes } from '../../components/AllCoffes'
+
 import {
   BackgroundIcons,
   Container,
@@ -8,6 +8,7 @@ import {
   ContentIcons,
   ContentTitle,
 } from './style'
+import { AllCoffes } from './components/AllCoffes'
 
 export function Home() {
   return (
