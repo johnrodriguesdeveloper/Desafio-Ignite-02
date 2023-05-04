@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { coffees } from '../../../../data/coffes'
 import { CardsCoffes, Coffee } from './CardsCoffes'
 import { ContentCard } from './style'
 
