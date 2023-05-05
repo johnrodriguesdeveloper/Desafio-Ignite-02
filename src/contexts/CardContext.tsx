@@ -1,12 +1,20 @@
-import React, { createContext, useState, ReactNode } from 'react'
+import React, { createContext, useState, ReactNode, useEffect } from 'react'
 
-interface CartCountType {
-  cartCount: number
+export interface Coffee {
+  id: number
+  tags: string[]
+  name: string
+  description: string
+  photo: string
+  price: number
+  count: number
+  markedcoffee: boolean
 }
 
 interface CardContextType {
-  cartCount: CartCountType
-  setCartCount: React.Dispatch<React.SetStateAction<CartCountType>>
+  cartCount: number
+  setCartCount: React.Dispatch<React.SetStateAction<number>>
+  allCoffees: Coffee[]
 }
 
 interface CardProviderProps {
@@ -16,10 +24,20 @@ interface CardProviderProps {
 export const CardContext = createContext({} as CardContextType)
 
 export function CardProvider({ children }: CardProviderProps) {
-  const [cartCount, setCartCount] = useState<CartCountType>({ cartCount: 0 })
+  const [cartCount, setCartCount] = useState<number>(0)
+  const [allCoffees, setAllCoffees] = useState([])
+  async function loadCoffees() {
+    const response = await fetch('http://localhost:3000/coffees')
+    const data = await response.json()
+
+    setAllCoffees(data)
+  }
+  useEffect(() => {
+    loadCoffees()
+  }, [])
 
   return (
-    <CardContext.Provider value={{ cartCount, setCartCount }}>
+    <CardContext.Provider value={{ cartCount, setCartCount, allCoffees }}>
       {children}
     </CardContext.Provider>
   )

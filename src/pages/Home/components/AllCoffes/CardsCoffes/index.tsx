@@ -11,18 +11,12 @@ import {
 } from './style'
 import { ButtonsIncrevements } from '../../../../../components/ButtonsIncrements'
 import { formatMoney } from '../../../../../utils/formatMoney'
+import { Coffee } from '../../../../../contexts/CardContext'
 
-export interface Coffee {
-  id: number
-  tags: string[]
-  name: string
-  description: string
-  photo: string
-  price: number
-}
 export interface CoffeeProps {
   coffee: Coffee
 }
+
 export function CardsCoffes({ coffee }: CoffeeProps) {
   const formattedPrice = formatMoney(coffee.price)
   return (
@@ -42,7 +36,7 @@ export function CardsCoffes({ coffee }: CoffeeProps) {
           R$ <span>{formattedPrice}</span>
         </Price>
         <ButtonFooter>
-          <ButtonsIncrevements />
+          <ButtonsIncrevements coffee={coffee} />
           <AddCartWrapper>
             <button>
               <ShoppingCart weight="fill" size={22} color="white" />

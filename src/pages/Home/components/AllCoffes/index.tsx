@@ -1,18 +1,10 @@
-import { useEffect, useState } from 'react'
-import { CardsCoffes, Coffee } from './CardsCoffes'
+import { useContext } from 'react'
+import { CardsCoffes } from './CardsCoffes'
 import { ContentCard } from './style'
+import { CardContext } from '../../../../contexts/CardContext'
 
 export function AllCoffes() {
-  const [allCoffees, setAllCoffees] = useState<Coffee[]>([])
-  async function loadCoffees() {
-    const response = await fetch('http://localhost:3000/coffees')
-    const data = await response.json()
-
-    setAllCoffees(data)
-  }
-  useEffect(() => {
-    loadCoffees()
-  }, [])
+  const { allCoffees } = useContext(CardContext)
 
   return (
     <div>

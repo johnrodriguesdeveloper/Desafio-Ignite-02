@@ -30,9 +30,16 @@ export const ButtonMap = styled.button`
 
 export const ButtonCart = styled.button`
   display: flex;
-  padding: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 2.3rem;
+  height: 2.3rem;
   border-radius: 6px;
   border: none;
+  padding: 0 0.5rem;
+  position: relative;
+  cursor: inherit;
   background: ${({ theme }) => theme['yellow-light']};
   color: ${({ theme }) => theme['yellow-dark']};
   transition: 0.5s;
@@ -40,5 +47,25 @@ export const ButtonCart = styled.button`
     background: ${({ theme }) => theme['yellow-dark']};
     color: ${({ theme }) => theme['yellow-light']};
   }
-  cursor: pointer;
+  &:hover .cartCount {
+    background: ${({ theme }) => theme['yellow-light']};
+    color: ${({ theme }) => theme['yellow-dark']};
+  }
+
+  span {
+    background: ${({ theme }) => theme['yellow-dark']};
+    color: ${({ theme }) => theme['yellow-light']};
+    transition: 0.6s;
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    top: calc(-1.25rem / 2);
+    right: calc(-1.25rem / 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
 `
