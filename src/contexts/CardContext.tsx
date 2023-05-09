@@ -15,6 +15,7 @@ interface CardContextType {
   cartCount: number
   setCartCount: React.Dispatch<React.SetStateAction<number>>
   allCoffees: Coffee[]
+  loadCoffees: () => void
 }
 
 interface CardProviderProps {
@@ -37,7 +38,9 @@ export function CardProvider({ children }: CardProviderProps) {
   }, [])
 
   return (
-    <CardContext.Provider value={{ cartCount, setCartCount, allCoffees }}>
+    <CardContext.Provider
+      value={{ cartCount, setCartCount, allCoffees, loadCoffees }}
+    >
       {children}
     </CardContext.Provider>
   )
