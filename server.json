@@ -10,7 +10,7 @@
       "photo": "tradicional.png",
       "price": 9.9,
       "count": 1,
-      "markedcoffee": true
+      "markedcoffee": false
     },
     {
       "id": 2,
@@ -125,7 +125,7 @@
       "photo": "chocolate.png",
       "price": 9.9,
       "count": 1,
-      "markedcoffee": true
+      "markedcoffee": false
     },
     {
       "id": 11,

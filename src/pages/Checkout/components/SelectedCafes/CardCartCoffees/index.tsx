@@ -6,9 +6,17 @@ import {
   FooterContainerButtons,
   HeaderCardCoffes,
 } from './style'
+import { useContext } from 'react'
+import { CardContext } from '../../../../../contexts/CardContext'
 import { CoffeeProps } from '../../../../Home/components/AllCoffes/CardsCoffes'
 
 export function CardCartCoffes({ coffee }: CoffeeProps) {
+  const { toogleMarkedCoffee } = useContext(CardContext)
+
+  function handleToggledCoffees() {
+    toogleMarkedCoffee(coffee.id)
+    // handleObjectChange()
+  }
   return (
     <CardCartCoffesContainer>
       <HeaderCardCoffes>
@@ -19,7 +27,7 @@ export function CardCartCoffes({ coffee }: CoffeeProps) {
           ))}
           <FooterContainerButtons>
             <ButtonsIncrevements coffee={coffee} />
-            <ButtonRemover>
+            <ButtonRemover onClick={() => handleToggledCoffees()}>
               <Trash size={16} color="#8047F8" />
               <span>Remover</span>
             </ButtonRemover>

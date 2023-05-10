@@ -11,7 +11,8 @@ import {
 } from './style'
 import { ButtonsIncrevements } from '../../../../../components/ButtonsIncrements'
 import { formatMoney } from '../../../../../utils/formatMoney'
-import { Coffee } from '../../../../../contexts/CardContext'
+import { CardContext, Coffee } from '../../../../../contexts/CardContext'
+import { useContext, useEffect } from 'react'
 
 export interface CoffeeProps {
   coffee: Coffee
@@ -19,6 +20,8 @@ export interface CoffeeProps {
 
 export function CardsCoffes({ coffee }: CoffeeProps) {
   const formattedPrice = formatMoney(coffee.price)
+  const { toogleMarkedCoffee } = useContext(CardContext)
+
   return (
     <CardsCoffeesContainer>
       <img src={`/coffees/${coffee.photo}`} alt="" />
@@ -38,7 +41,7 @@ export function CardsCoffes({ coffee }: CoffeeProps) {
         <ButtonFooter>
           <ButtonsIncrevements coffee={coffee} />
           <AddCartWrapper>
-            <button>
+            <button onClick={() => toogleMarkedCoffee(coffee.id)}>
               <ShoppingCart weight="fill" size={22} color="white" />
             </button>
           </AddCartWrapper>

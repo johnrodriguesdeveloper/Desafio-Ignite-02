@@ -11,9 +11,7 @@ export function Header() {
   return (
     <Container>
       <NavLink to="/" title="CoffeeDelivery">
-        <div>
-          <img src={logo} alt="" />
-        </div>
+        <img src={logo} alt="" />
       </NavLink>
 
       <ContentButtons>
