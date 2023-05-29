@@ -27,15 +27,14 @@ export const HeaderDelivery = styled.div`
   }
 `
 
-export const AddressFormContainer = styled.div`
+export const AddressFormContainer = styled.form`
   margin-top: 2rem;
   width: 100%;
   display: grid;
-  grid-template-columns: 12.5rem 17.25rem 3.75rem;
+  grid-template-columns: 12.5rem;
   column-gap: 0.75rem;
   row-gap: 1rem;
   grid-auto-flow: dense;
-
   .cep {
     grid-column: span 3;
     max-width: 12.5rem;
@@ -44,20 +43,18 @@ export const AddressFormContainer = styled.div`
   .street {
     grid-column: span 3;
   }
-
-  .complement {
-    grid-column: span 2;
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
-
   input {
     height: 2.625rem;
     border-radius: 4px;
     border: 1px solid ${({ theme }) => theme['base-button']};
     background: ${({ theme }) => theme['base-input']};
-    padding-left: 00.875rem;
+    padding-left: 0.5rem;
 
-    display: flex;
-    align-items: center;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -76,6 +73,17 @@ export const AddressFormContainer = styled.div`
     color: ${({ theme }) => theme['base-text']};
     &::placeholder {
       color: ${({ theme }) => theme['base-label']};
+    }
+  }
+
+  button {
+    grid-column: span 3;
+    padding: 0.875rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    transition: 0.5s;
+    :hover {
+      background-color: blueviolet;
     }
   }
 `

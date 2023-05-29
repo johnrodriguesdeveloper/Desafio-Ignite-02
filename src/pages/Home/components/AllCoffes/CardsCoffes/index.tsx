@@ -12,7 +12,7 @@ import {
 import { ButtonsIncrevements } from '../../../../../components/ButtonsIncrements'
 import { formatMoney } from '../../../../../utils/formatMoney'
 import { CardContext, Coffee } from '../../../../../contexts/CardContext'
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 
 export interface CoffeeProps {
   coffee: Coffee

@@ -11,6 +11,15 @@ export interface Coffee {
   count: number
   markedcoffee: boolean
 }
+interface Address {
+  zipCode: number
+  road: string
+  number: number
+  complement: string
+  neighborhood: string
+  city: string
+  UF: string
+}
 
 interface CardContextType {
   cartCount: number
@@ -18,6 +27,8 @@ interface CardContextType {
   allCoffees: Coffee[]
   loadCoffees: () => void
   toogleMarkedCoffee: (id: number) => void
+  address: Address
+  setAddress: React.Dispatch<React.SetStateAction<Address>>
 }
 
 interface CardProviderProps {
@@ -29,6 +40,15 @@ export const CardContext = createContext({} as CardContextType)
 export function CardProvider({ children }: CardProviderProps) {
   const [cartCount, setCartCount] = useState<number>(0)
   const [allCoffees, setAllCoffees] = useState([])
+  const [address, setAddress] = useState<Address>({
+    zipCode: '',
+    road: '',
+    number: 0,
+    complement: '',
+    neighborhood: '',
+    city: '',
+    UF: '',
+  })
 
   async function toogleMarkedCoffee(id: number) {
     try {
@@ -62,6 +82,8 @@ export function CardProvider({ children }: CardProviderProps) {
         allCoffees,
         loadCoffees,
         toogleMarkedCoffee,
+        setAddress,
+        address,
       }}
     >
       {children}

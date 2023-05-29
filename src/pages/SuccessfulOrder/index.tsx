@@ -6,8 +6,11 @@ import {
 } from './style'
 import illustration from '../../assets/illustration.svg'
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { useContext } from 'react'
+import { CardContext } from '../../contexts/CardContext'
 
 export function SucessfulOrder() {
+  const { address } = useContext(CardContext)
   return (
     <SucessfulOrderContainer>
       <h1>Uhu! Pedido confirmado</h1>
@@ -20,9 +23,13 @@ export function SucessfulOrder() {
             </div>
 
             <p>
-              Entrega em <b> Rua João Daniel Martinelli, 102</b>
+              Entrega em{' '}
+              <b>
+                {' '}
+                {address.road}, {address.number}
+              </b>
               <br />
-              Farrapos - Porto Alegre, RS
+              {address.neighborhood} - {address.city}, {address.UF}
             </p>
           </CardTextDateDelivery>
           <CardTextDateDelivery>

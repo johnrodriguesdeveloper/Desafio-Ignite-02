@@ -9,7 +9,7 @@
       "description": "O tradicional café feito com água quente e grãos moídos",
       "photo": "tradicional.png",
       "price": 9.9,
-      "count": 1,
+      "count": 5,
       "markedcoffee": false
     },
     {
@@ -150,7 +150,7 @@
       "description": "Bebida adocicada preparada com café e leite de coco",
       "photo": "havaiano.png",
       "price": 9.9,
-      "count": 1,
+      "count": 2,
       "markedcoffee": false
     },
     {

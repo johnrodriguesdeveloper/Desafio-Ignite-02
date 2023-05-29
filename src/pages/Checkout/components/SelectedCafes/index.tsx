@@ -13,6 +13,19 @@ import { CardContext } from '../../../../contexts/CardContext'
 export function SelectedCafes() {
   const { allCoffees } = useContext(CardContext)
   const cartCoffees = allCoffees.filter((coffee) => coffee.markedcoffee)
+  console.log(cartCoffees)
+  let somaPrice = 0
+  let somaCount = 0
+
+  for (let i = 0; i < cartCoffees.length; i++) {
+    somaPrice += cartCoffees[i].price
+    somaCount += cartCoffees[i].count
+  }
+  // eslint-disable-next-line prettier/prettier
+  const priceDelivery = 3.50
+  const priceTotalItens = somaPrice * somaCount
+  const priceTotalItensFormated = priceTotalItens.toFixed(2)
+  const priceTotal = Number(priceTotalItensFormated) + Number(priceDelivery)
 
   return (
     <SelectedCafesContainer>
@@ -30,10 +43,10 @@ export function SelectedCafes() {
             </p>
           </div>
           <div>
-            <p>R$ 29,70</p>
-            <p>R$ 3,50</p>
+            <p>R$ {priceTotalItensFormated}</p>
+            <p>R$ {priceDelivery}</p>
             <p>
-              <b>R$ 33,20</b>
+              <b>R$ {priceTotal}</b>
             </p>
           </div>
         </TextFooterSelectedCafes>
