@@ -9,13 +9,19 @@ import {
 } from './style'
 import { useContext } from 'react'
 import { CardContext } from '../../../../contexts/CardContext'
+import { useFormContext } from 'react-hook-form'
 
 export function SelectedCafes() {
-  const { allCoffees } = useContext(CardContext)
+  const { allCoffees, setAddress } = useContext(CardContext)
+  const { handleSubmit } = useFormContext()
   const cartCoffees = allCoffees.filter((coffee) => coffee.markedcoffee)
-  console.log(cartCoffees)
+
   let somaPrice = 0
   let somaCount = 0
+
+  function paymentConfirmation(data: any) {
+    setAddress(data)
+  }
 
   for (let i = 0; i < cartCoffees.length; i++) {
     somaPrice += cartCoffees[i].price
@@ -50,9 +56,12 @@ export function SelectedCafes() {
             </p>
           </div>
         </TextFooterSelectedCafes>
-        <NavLink to="/successfulorder" title="successfulorder">
-          <ButtonConfirmed>CONFIRMAR PEDIDO</ButtonConfirmed>
-        </NavLink>
+
+        <ButtonConfirmed onClick={handleSubmit(paymentConfirmation)}>
+          <NavLink to="/successfulorder" title="successfulorder">
+            <button>CONFIRMAR PEDIDO</button>
+          </NavLink>
+        </ButtonConfirmed>
       </SelectedCafesContent>
     </SelectedCafesContainer>
   )

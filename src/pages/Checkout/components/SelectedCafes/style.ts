@@ -39,4 +39,9 @@ export const ButtonConfirmed = styled.button`
   :hover {
     background: ${({ theme }) => theme['yellow-dark']};
   }
+  button {
+    background-color: transparent;
+    border: none;
+    color: white;
+  }
 `

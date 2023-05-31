@@ -1,9 +1,6 @@
-import { useForm } from 'react-hook-form'
+import { useFormContext } from 'react-hook-form'
 import { AddressFormContainer } from './style'
-import { useContext } from 'react'
-import { CardContext } from '../../../../contexts/CardContext'
 import { z } from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
 
 export const createAddressFormSchema = z.object({
   zipCode: z.string().nonempty('O cep é obrigatório'),
@@ -15,23 +12,13 @@ export const createAddressFormSchema = z.object({
   UF: z.string().nonempty('O UF é obrigatório'),
 })
 
-type CreateAddressFormData = z.infer<typeof createAddressFormSchema>
-
 export function AddressForm() {
   const {
     register,
-    handleSubmit,
     formState: { errors },
-  } = useForm<CreateAddressFormData>({
-    resolver: zodResolver(createAddressFormSchema),
-  })
-  const { setAddress } = useContext(CardContext)
-
-  function paymentConfirmation(data: any) {
-    setAddress(data)
-  }
+  } = useFormContext()
   return (
-    <AddressFormContainer onSubmit={handleSubmit(paymentConfirmation)}>
+    <AddressFormContainer>
       <div className="cep">
         <input type="number" placeholder="CEP" {...register('zipCode')} />
         {errors.zipCode && <span>{errors.zipCode.message}</span>}
@@ -63,8 +50,6 @@ export function AddressForm() {
         <input type="text" placeholder="UF" {...register('UF')} />
         {errors.city && <span>{errors.city.message}</span>}
       </div>
-
-      <button type="submit">Submit</button>
     </AddressFormContainer>
   )
 }
