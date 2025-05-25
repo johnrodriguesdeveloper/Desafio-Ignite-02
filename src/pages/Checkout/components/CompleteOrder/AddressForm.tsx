@@ -4,11 +4,11 @@ import { z } from 'zod'
 
 export const createAddressFormSchema = z.object({
   zipCode: z.string().nonempty('O cep é obrigatório'),
-  road: z.string().nonempty('A Rua é obrigatório'),
+  road: z.string().nonempty('A Rua é obrigatória'),
   number: z.string().nonempty('O Número é obrigatório'),
   complement: z.string(),
   neighborhood: z.string().nonempty('O Bairro é obrigatório'),
-  city: z.string().nonempty('A Cidade é obrigatório'),
+  city: z.string().nonempty('A Cidade é obrigatória'),
   UF: z.string().nonempty('O UF é obrigatório'),
 })
 
@@ -17,26 +17,28 @@ export function AddressForm() {
     register,
     formState: { errors },
   } = useFormContext()
+
   return (
     <AddressFormContainer>
       <div className="cep">
         <input type="number" placeholder="CEP" {...register('zipCode')} />
+        {errors.zipCode?.message && <span>{String(errors.zipCode.message)}</span>}
       </div>
       <div>
         <input type="text" placeholder="Rua" {...register('road')} />
-        {errors.road && <span>{errors.road.message}</span>}
+        {errors.road?.message && <span>{String(errors.road.message)}</span>}
       </div>
       <div>
         <input type="text" placeholder="Bairro" {...register('neighborhood')} />
-        {errors.neighborhood && <span>{errors.neighborhood.message}</span>}
+        {errors.neighborhood?.message && <span>{String(errors.neighborhood.message)}</span>}
       </div>
       <div>
         <input type="number" placeholder="Número" {...register('number')} />
-        {errors.number && <span>{errors.number.message}</span>}
+        {errors.number?.message && <span>{String(errors.number.message)}</span>}
       </div>
       <div>
         <input type="text" placeholder="Cidade" {...register('city')} />
-        {errors.city && <span>{errors.city.message}</span>}
+        {errors.city?.message && <span>{String(errors.city.message)}</span>}
       </div>
       <div className="complement">
         <input
@@ -47,7 +49,7 @@ export function AddressForm() {
       </div>
       <div>
         <input type="text" placeholder="UF" {...register('UF')} />
-        {errors.city && <span>{errors.city.message}</span>}
+        {errors.UF?.message && <span>{String(errors.UF.message)}</span>}
       </div>
     </AddressFormContainer>
   )
