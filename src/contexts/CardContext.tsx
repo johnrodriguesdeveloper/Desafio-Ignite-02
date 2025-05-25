@@ -41,7 +41,7 @@ export function CardProvider({ children }: CardProviderProps) {
   const [cartCount, setCartCount] = useState<number>(0)
   const [allCoffees, setAllCoffees] = useState([])
   const [address, setAddress] = useState<Address>({
-    zipCode: '',
+    zipCode: 0,
     road: '',
     number: 0,
     complement: '',
