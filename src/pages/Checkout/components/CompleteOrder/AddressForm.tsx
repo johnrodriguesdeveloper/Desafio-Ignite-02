@@ -21,7 +21,6 @@ export function AddressForm() {
     <AddressFormContainer>
       <div className="cep">
         <input type="number" placeholder="CEP" {...register('zipCode')} />
-        {errors.zipCode && <span>{errors.zipCode.message}</span>}
       </div>
       <div>
         <input type="text" placeholder="Rua" {...register('road')} />
