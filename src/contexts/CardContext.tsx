@@ -12,7 +12,7 @@ export interface Coffee {
   markedcoffee: boolean
 }
 interface Address {
-  zipCode: number
+  zipCode: string
   road: string
   number: number
   complement: string
@@ -41,7 +41,7 @@ export function CardProvider({ children }: CardProviderProps) {
   const [cartCount, setCartCount] = useState<number>(0)
   const [allCoffees, setAllCoffees] = useState([])
   const [address, setAddress] = useState<Address>({
-    zipCode: 0,
+    zipCode: '',
     road: '',
     number: 0,
     complement: '',
